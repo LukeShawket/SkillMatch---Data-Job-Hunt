@@ -7,3 +7,8 @@ us
 branca
 requests
 git+https://github.com/yourusername/https://github.com/LukeShawket/SkillMatch-Data-Job-Matcher.git@main#egg=pdf_picker
+pdfminer.high_level
+re
+spacy
+spacy.training.example
+spacy.matcher
