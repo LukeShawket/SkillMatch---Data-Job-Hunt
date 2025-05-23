@@ -6,4 +6,4 @@ streamlit_folium
 us
 branca
 requests
-pdf_picker
+git+https://github.com/yourusername/yourrepo.git@yourbranch#egg=pdf_picker
