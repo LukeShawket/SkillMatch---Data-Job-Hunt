@@ -1,8 +1,0 @@
-pandas
-streamlit
-plotly
-folium
-streamlit_folium
-us
-branca
-requests
