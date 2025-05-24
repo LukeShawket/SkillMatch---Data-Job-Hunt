@@ -6,7 +6,6 @@ streamlit_folium
 us
 branca
 requests
-git+https://github.com/LukeShawket/SkillMatch-Data-Job-Matcher.git@main#egg=pdf_picker
 pdfminer.six
 re
 spacy
