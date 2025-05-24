@@ -6,8 +6,5 @@ streamlit_folium
 us
 branca
 requests
-pdfminer.six
-re
+pdfminer.six==20221105
 spacy
-spacy.training.example
-spacy.matcher
