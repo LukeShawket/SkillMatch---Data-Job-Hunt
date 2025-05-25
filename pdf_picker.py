@@ -4,6 +4,20 @@ import spacy
 from spacy.training.example import Example
 from spacy.matcher import PhraseMatcher
 
+try:
+    nlp = spacy.load('en_core_web_sm')
+except IOError:
+    print("Model 'en_core_web_sm' not found. Attempting to download...")
+    try:
+        spacy.cli.download('en_core_web_sm')
+        nlp = spacy.load('en_core_web_sm')
+        print("Model 'en_core_web_sm' downloaded successfully!")
+    except Exception as e:
+        print(f"Failed to download 'en_core_web_sm' due to a network issue: {str(e)}")
+        # Fallback: Use a blank English model with minimal functionality
+        nlp = spacy.blank('en')
+        print("Using a blank English model as a fallback. Some features may be limited.")
+
 
 MATCH_DATA = ["Python", "SQL", "R", "Scala", "Java", "Julia", "MATLAB", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly", "Power BI", "Tableau", "Looker",
               "Excel", "TensorFlow", "PyTorch", "scikit-learn", "Keras", "XGBoost", "LightGBM", "Hugging Face Transformers", "Reinforcement Learning", "spaCy", "NLTK",
@@ -25,7 +39,6 @@ def extract_resume(path):
 
 
 def parse_resume(text):
-    nlp = spacy.load('en_core_web_sm')
     matcher = PhraseMatcher(nlp.vocab)
     patterns = [nlp.make_doc(skill) for skill in MATCH_DATA]
     matcher.add("TECH_SKILL", None, *patterns)
@@ -49,7 +62,6 @@ def parse_resume(text):
 #print(parse_resume(extract_resume(resume_path)))
 
 def parse_skills(text):
-    nlp = spacy.load('en_core_web_sm')
     matcher = PhraseMatcher(nlp.vocab)
     patterns = [nlp.make_doc(skill) for skill in MATCH_DATA]
     matcher.add("TECH_SKILL", None, *patterns)
