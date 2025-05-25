@@ -5,7 +5,7 @@ numpy==2.2.5
 pandas==2.2.3
 pdfminer.six==20250506
 plotly==6.1.1
-spacy==3.8.5
+spacy
 streamlit==1.45.1
 streamlit_folium==0.25.0
 us==3.2.0
